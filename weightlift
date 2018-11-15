@@ -1,57 +1,48 @@
 class Lift:
-    def __init__(self, name, kg, lbs):
+    #make a class for what a lift is.
+    def __init__(self, name, kg, lbs, RPE):
         self.name = name
         self.kg = kg
         self.lbs = lbs
-  
-    def list_Lift(self):
-        print("You're next attempt is " + str(self.kg))
-        print("You're next attempt is " + str(self.lbs))
+        self.RPE = RPE 
     
+    #function for displaying a lifts weight.
+    def list_Lift(self):
+        print("You next attempt is " + str(self.kg))
+        print("You next attempt is " + str(self.lbs))
+    
+    #function for adding weight to the next lift based on a difficulty number.
     def adding_weight(self):
     
-        if  bench1.RPE < 4:
-            next_bench_kg = 0 
-            next_bench_lbs = 0
-            next_bench_kg = bench1.kg + 20
-            next_bench_lbs = bench1.lbs + 45
-            bench2.kg = next_bench_kg
-            bench2.lbs = next_bench_lbs
-            #print(next_bench_kg)
-            #print(next_bench_lbs)
+        if  self.RPE < 4: 
+            nextkg = self.kg + 20
+            nextlbs = self.lbs + 45
+            return Lift(self.name, nextkg, nextlbs, 0)
+        #return function gets the answer from a statement and is named the same
+        #as the functions now.
             
-        elif  bench1.RPE > 4 and bench1.RPE < 8:
-            next_bench_kg = 0 
-            next_bench_lbs = 0
-            next_bench_kg = bench1.kg + 10
-            next_bench_lbs = bench1.lbs + 22
-            bench2.kg = next_bench_kg
-            bench2.lbs = next_bench_lbs
-            #print(next_bench_kg)
-            #print(next_bench_lbs)
+        elif  self.RPE >= 4 and self.RPE < 8:
+            nextkg = self.kg + 10
+            nextlbs = self.lbs + 22
+            return Lift(self.name, nextkg, nextlbs, 0)
             
         else:  
-            next_bench_kg = 0 
-            next_bench_lbs = 0
-            next_bench_kg = bench1.kg + 5
-            next_bench_lbs = bench1.lbs + 11
-            bench2.kg = next_bench_kg
-            bench2.lbs = next_bench_lbs
-            #print(next_bench_kg)
-            #print(next_bench_lbs)
+            nextkg = self.kg + 5
+            nextlbs = self.lbs + 11
+            return Lift(self.name, nextkg, nextlbs, 0)
             
-bench1 = Lift("Bench", 60, 135)
-squat1 = Lift("Squat", 100, 225)
-deadlift1 = Lift("Deadlift", 140, 315)
+#draw a list that stores the current weights for each lift,
+#the user then edits the weight to the new weight after and then sets a new
+#difficulty number.
+CurrentLift = [Lift("Bench", 160, 160, 7), Lift("Squat", 170, 160, 9), Lift("Deadlift", 155, 160, 1)]
 
-bench2 = Lift("Bench", 0, 0)
-squat2 = Lift("Squat", 0, 0)
-deadlift2 = Lift("Deadlift", 0, 0)
-
-bench2 = Lift("Bench", 0, 0)
-squat2 = Lift("Squat", 0, 0)
-deadlift2 = Lift("Deadlift", 0, 0)
-
-bench1.RPE = int(2)
-
-bench2.list_Lift()
+#defines an empty list
+#goes through each lift in a list and does the adding weight function
+#for each one and then adds it to a new list.
+NewLift= []
+for lift in CurrentLift:
+    NewLift.append(lift.adding_weight())
+#prints the new list and completes list_lift function.
+for lift in NewLift:
+    print(lift.name + " " ) 
+    lift.list_Lift()
