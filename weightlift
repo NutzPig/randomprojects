@@ -1,0 +1,57 @@
+class Lift:
+    def __init__(self, name, kg, lbs):
+        self.name = name
+        self.kg = kg
+        self.lbs = lbs
+  
+    def list_Lift(self):
+        print("You're next attempt is " + str(self.kg))
+        print("You're next attempt is " + str(self.lbs))
+    
+    def adding_weight(self):
+    
+        if  bench1.RPE < 4:
+            next_bench_kg = 0 
+            next_bench_lbs = 0
+            next_bench_kg = bench1.kg + 20
+            next_bench_lbs = bench1.lbs + 45
+            bench2.kg = next_bench_kg
+            bench2.lbs = next_bench_lbs
+            #print(next_bench_kg)
+            #print(next_bench_lbs)
+            
+        elif  bench1.RPE > 4 and bench1.RPE < 8:
+            next_bench_kg = 0 
+            next_bench_lbs = 0
+            next_bench_kg = bench1.kg + 10
+            next_bench_lbs = bench1.lbs + 22
+            bench2.kg = next_bench_kg
+            bench2.lbs = next_bench_lbs
+            #print(next_bench_kg)
+            #print(next_bench_lbs)
+            
+        else:  
+            next_bench_kg = 0 
+            next_bench_lbs = 0
+            next_bench_kg = bench1.kg + 5
+            next_bench_lbs = bench1.lbs + 11
+            bench2.kg = next_bench_kg
+            bench2.lbs = next_bench_lbs
+            #print(next_bench_kg)
+            #print(next_bench_lbs)
+            
+bench1 = Lift("Bench", 60, 135)
+squat1 = Lift("Squat", 100, 225)
+deadlift1 = Lift("Deadlift", 140, 315)
+
+bench2 = Lift("Bench", 0, 0)
+squat2 = Lift("Squat", 0, 0)
+deadlift2 = Lift("Deadlift", 0, 0)
+
+bench2 = Lift("Bench", 0, 0)
+squat2 = Lift("Squat", 0, 0)
+deadlift2 = Lift("Deadlift", 0, 0)
+
+bench1.RPE = int(2)
+
+bench2.list_Lift()
